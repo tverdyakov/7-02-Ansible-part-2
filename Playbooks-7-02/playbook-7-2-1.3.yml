@@ -1,0 +1,13 @@
+---
+- name: "New hello motd"
+  hosts: "all"
+  become: True
+
+  vars:
+    new_hello_motd: "*** Ho-ho-ho! Hello and a Happy *2024* New Year! ***"
+
+  tasks:
+  - name: "New motd"
+    copy:
+      content: "{{ new_hello_motd }}"
+      dest: /etc/motd

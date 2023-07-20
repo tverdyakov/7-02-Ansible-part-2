@@ -1,0 +1,16 @@
+---
+- name: "Mkdir ApacheKafka --> Download and unzip Apache Kafka"
+  hosts: "all"
+  become: True
+
+  tasks:
+  - name: "Mkdir ApacheKafka"
+    file:
+      path: /home/tverdyakov/ApacheKafka
+      state: directory
+
+  - name: "Download and unzip Apache Kafka"
+    unarchive:
+      src: "https://downloads.apache.org/kafka/3.5.0/kafka-3.5.0-src.tgz"
+      dest: /home/tverdyakov/ApacheKafka
+      remote_src: yes
